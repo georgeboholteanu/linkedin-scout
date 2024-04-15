@@ -7,7 +7,8 @@ import { MdClose } from "react-icons/md";
 // components
 import Navbar from "./Navbar";
 import NavbarMobile from "./NavbarMobile";
-import SideNav from "./SecondaryNavbar";
+import { SecondaryNav } from "@/utils/Constants";
+import NavbarAuth from "./NavbarAuth";
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -39,11 +40,8 @@ const Header = () => {
 					</div>
 
 					{/* Secondary nav */}
-					<div className="flex items-center">
-						<SideNav
-							containerStyles="hidden md:flex items-center space-x-2"
-							linkStyles="py-2 px-4 hover:underline transition-all"
-						/>					
+					<div>
+						<NavbarAuth/>					
 					</div>
 
 			
