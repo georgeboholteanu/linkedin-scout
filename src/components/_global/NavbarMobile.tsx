@@ -2,11 +2,11 @@ import React from "react";
 import { PrimaryNav } from "@/utils/Constants";
 import Link from "next/link";
 
-interface NavbarProps {
+interface NavbarMobileProps {
 	containerStyles?: string;
     linkStyles?: string;
 }
-const Navbar: React.FC<NavbarProps> = ({containerStyles, linkStyles}) => {
+const NavbarMobile: React.FC<NavbarMobileProps> = ({containerStyles, linkStyles}) => {
 	return (
 		<nav className={`${containerStyles}`}>
 			{PrimaryNav.map((item) => (
@@ -22,4 +22,4 @@ const Navbar: React.FC<NavbarProps> = ({containerStyles, linkStyles}) => {
 	);
 };
 
-export default Navbar;
+export default NavbarMobile;

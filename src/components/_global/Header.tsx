@@ -1,11 +1,12 @@
 "use client";
+import { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState } from "react";
-import { PrimaryNav } from "../../utils/Constants";
 // icons
-import { GiHamburgerMenu } from "react-icons/gi";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
+import Navbar from "./Navbar";
+import NavbarMobile from "./NavbarMobile";
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +23,15 @@ const Header = () => {
 							href="#"
 							className="flex items-center py-5 px-2 text-gray-300 hover:text-gray-400"
 						>
-							<span className="font-bold">LinkedIn Scout</span>
+							<span className="font-bold text-2xl">LinkedIn Scout</span>
 						</Link>
 					</div>
 
 					{/* Primary nav */}
-					<div className="hidden md:flex items-center space-x-2">
-					
-					</div>
+					<Navbar
+						containerStyles="hidden md:flex items-center space-x-2"
+						linkStyles="py-2 px-4 hover:underline transition-all"
+					/>
 
 					{/* Login */}
 					<div className="hidden md:flex items-center">
@@ -57,26 +59,23 @@ const Header = () => {
 							</div>
 						)}
 					</div>
-				
 
 					{/* Mobile button */}
 					<div className="md:hidden flex items-center">
-						<button onClick={() => setIsOpen(!isOpen)}>
-							{/* <span className="material-symbols-outlined">menu</span> */}
-						
-							{isOpen ? (
-								<MdClose />
-							) : (
-								<GiHamburgerMenu />
-							)}
-							
+						<button onClick={() => setIsOpen(!isOpen)} className="text-2xl">
+							{isOpen ? <MdClose /> : <RxHamburgerMenu />}
 						</button>
 					</div>
-			
-					{/* Mobile Menu */}
-					<div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-					
-					</div>
+				</div>
+
+				{/* Mobile Menu */}
+				<div className="flex px-4 pb-6">
+					<NavbarMobile
+						containerStyles={`md:hidden ${
+							isOpen ? "flex flex-col" : "hidden"
+						}`}
+						linkStyles="py-2 px-4 hover:bg-gray-700"
+					/>
 				</div>
 			</div>
 		</div>
