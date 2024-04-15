@@ -12,3 +12,13 @@ export const PrimaryNav = [
         path: "/help"
     },    
 ]
+export const SecondaryNav = [   
+    {
+        name: "Login",
+        path: "/login"
+    },    
+    {
+        name: "Sign in",
+        path: "/signin"
+    },    
+]
